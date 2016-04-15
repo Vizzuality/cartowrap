@@ -2,6 +2,7 @@ require 'multi_json'
 require 'cartowrap/api'
 require 'cartowrap/http_service'
 require 'cartowrap/errors'
+require 'ostruct'
 module Cartowrap
   class << self
     attr_accessor :http_service, :config

@@ -1,6 +1,5 @@
 require 'spec_helper'
-require 'rails_helper'
-
+require 'cartowrap'
 describe Cartowrap::APIError do
   it "is a Cartowrap::CartowrapError" do
     expect(Cartowrap::APIError.new(nil, nil)).to be_a(Cartowrap::CartowrapError)

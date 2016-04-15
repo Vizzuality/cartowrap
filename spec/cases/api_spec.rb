@@ -1,5 +1,4 @@
 require 'spec_helper'
-require "rails_helper"
 describe "Cartowrap::API" do
   before(:each) do
     @service = Cartowrap::API.new()
