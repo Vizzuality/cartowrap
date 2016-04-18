@@ -4,16 +4,15 @@ PATH
     cartowrap (0.1.0)
       faraday
       multi_json
-      rspec-core
-      rspec-expectations
-      rspec-mocks
 
 GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    docile (1.1.5)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    json (1.8.3)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     rspec-core (3.4.4)
@@ -25,12 +24,21 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    simplecov (0.11.2)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cartowrap!
+  rspec-core
+  rspec-expectations
+  rspec-mocks
+  simplecov
 
 BUNDLED WITH
    1.11.2
