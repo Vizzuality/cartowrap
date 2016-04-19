@@ -6,7 +6,7 @@ module Cartowrap
     class << self
     end
     def self.make_request(options, credentials={})
-      http_method = options.http_method&.to_sym || :get
+      http_method = options.http_method.try(:to_sym) || :get
       account = credentials["account"]
       endpoint = Endpoint.new(options, credentials).get
       con = Faraday.new(:url => "https://#{account}.cartodb.com") do |faraday|
