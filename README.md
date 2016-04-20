@@ -19,7 +19,8 @@ $ gem install cartowrap
 ```
 
 ## Usage
-```require 'cartowrap'
+```ruby
+require 'cartowrap'
 api = Cartowrap::API.new(your_api_key, your_account)
 api.send_query('select * from country_isos')
 country_isos = JSON.parse(api.response)
@@ -27,7 +28,8 @@ country_isos = JSON.parse(api.response)
 
 ## Usage with rails
 You can configure Cartowrap in an initializer
-```#config/initializers/cartowrap.rb
+```ruby
+#config/initializers/cartowrap.rb
 require 'cartowrap'
 Cartowrap.configure do |config|
   config.account = your_cartodb_account
@@ -40,7 +42,7 @@ api_call = Cartowrap::API.new
 
 ## Current methods
 
-```
+```ruby
 send_query(query)
 get_synchronizations
 get_synchronization(import_id)
