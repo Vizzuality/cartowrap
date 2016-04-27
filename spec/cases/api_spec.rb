@@ -32,3 +32,37 @@ describe "Cartowrap::API" do
     @service.delete_synchronization("import_id")
   end
 end
+
+
+
+describe "Cartowrap::API" do
+  before(:each) do
+    Cartowrap.config.dry_run = true
+    @service = Cartowrap::API.new()
+  end
+  it "dry runs query requests" do
+    expect(Cartowrap).to_not receive(:make_request)
+    @service.send_query('anything')
+  end
+  it "dry runs synchronizations requests" do
+    expect(Cartowrap).to_not receive(:make_request)
+    @service.get_synchronizations
+  end
+  it "dry runs checks for synchronization status" do
+    expect(Cartowrap).to_not receive(:make_request)
+    @service.check_synchronization("import_id")
+  end
+  it "dry runs synchronization forces" do
+    expect(Cartowrap).to_not receive(:make_request)
+    @service.force_synchronization("import_id")
+  end
+  it "dry runs synchronization creates" do
+    expect(Cartowrap).to_not receive(:make_request)
+    @service.create_synchronization("url", 900)
+  end
+  it "dry runs synchronization delete" do
+    expect(Cartowrap).to_not receive(:make_request)
+    @service.delete_synchronization("import_id")
+  end
+end
+

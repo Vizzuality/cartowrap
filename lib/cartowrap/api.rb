@@ -3,6 +3,7 @@ module Cartowrap
     def initialize(api_key = nil, account = nil)
       @api_key = api_key || Cartowrap.config.api_key
       @account = account || Cartowrap.config.account
+      @dry_run = Cartowrap.config.dry_run || false
       @credentials = {}
       @credentials['api_key'] = @api_key
       @credentials['account'] = @account
@@ -84,11 +85,13 @@ module Cartowrap
 
     def validate_sync_options(sync_options)
       valid_options = [:type_guessing, :quoted_fields_guessing, :content_guessing]
-      sync_options = sync_options.map{|o| ((valid_options.include? o[0]) && !!o[1] == o[1]) ? o : nil}.compact.to_h
+      sync_options = sync_options.map { |o| ((valid_options.include? o[0]) && !!o[1] == o[1]) ? o : nil }.compact.to_h
       sync_options
     end
 
     def make_call(options)
+      return fake_response if @dry_run
+
       result = Cartowrap.make_request(options, credentials)
       unless check_errors(result.status.to_i, result.body)
         MultiJson.load("[#{result.body.to_s}]")[0]
@@ -99,18 +102,22 @@ module Cartowrap
 
     def check_errors(status, body)
       case status
-      when 500
-        initialize_options
-        raise Cartowrap::ServerError.new(status, '')
-      when 401
-        initialize_options
-        raise Cartowrap::NoTokenError.new(status, body)
-      when 404
-        initialize_options
-        raise Cartowrap::NotFoundError.new(status, '')
-      else
-        return false
+        when 500
+          initialize_options
+          raise Cartowrap::ServerError.new(status, '')
+        when 401
+          initialize_options
+          raise Cartowrap::NoTokenError.new(status, body)
+        when 404
+          initialize_options
+          raise Cartowrap::NotFoundError.new(status, '')
+        else
+          return false
       end
+    end
+
+    def fake_response
+      Cartowrap::HTTPService::Response.new(200, "", "")
     end
   end
 end
