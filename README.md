@@ -1,4 +1,7 @@
 # Cartowrap
+
+[![Build Status](https://travis-ci.org/Vizzuality/cartowrap.svg?branch=master)](https://travis-ci.org/Vizzuality/cartowrap)
+
 This gem provides a simple wrapper for Cartodb SQL and Sync API. More features coming soon.
 
 ## Installation
