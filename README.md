@@ -1,6 +1,8 @@
 # Cartowrap
 
 [![Build Status](https://travis-ci.org/Vizzuality/cartowrap.svg?branch=master)](https://travis-ci.org/Vizzuality/cartowrap)
+[![Code Climate](https://codeclimate.com/github/Vizzuality/cartowrap/badges/gpa.svg)](https://codeclimate.com/github/Vizzuality/cartowrap)
+[![Test Coverage](https://codeclimate.com/github/Vizzuality/cartowrap/badges/coverage.svg)](https://codeclimate.com/github/Vizzuality/cartowrap/coverage)
 
 This gem provides a simple wrapper for Cartodb SQL and Sync API. More features coming soon.
 
