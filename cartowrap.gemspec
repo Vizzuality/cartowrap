@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'codeclimate-test-reporter'
 
   s.add_runtime_dependency 'faraday'
-  s.add_runtime_dependency("multi_json")
+  s.add_runtime_dependency 'multi_json'
   s.test_files = Dir["spec/**/*"]
 end
