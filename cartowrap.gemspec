@@ -14,6 +14,8 @@ Gem::Specification.new do |s|
   s.description = "Provides a common interface for some CartoDB functions."
   s.license     = "MIT"
 
+  s.required_ruby_version = ">= 2.3.1"
+
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.require_paths  = ["lib"]
 
