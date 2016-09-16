@@ -7,6 +7,10 @@ describe "Cartowrap::API" do
     expect(Cartowrap).to receive(:make_request).and_return(Cartowrap::HTTPService::Response.new(200, "", ""))
     @service.send_query('anything')
   end
+  it "makes post query requests" do
+    expect(Cartowrap).to receive(:make_request).and_return(Cartowrap::HTTPService::Response.new(200, "", ""))
+    @service.post_query('anything')
+  end
   it "gets synchronizations index" do
     expect(Cartowrap).to receive(:make_request).and_return(Cartowrap::HTTPService::Response.new(200, "", ""))
     @service.get_synchronizations

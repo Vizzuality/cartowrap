@@ -20,6 +20,16 @@ module Cartowrap
       result
     end
 
+    def post_query(query)
+      options.http_method = "post"
+      options.query_string = false
+      options.endpoint = "sql_post"
+      options.marshal_dump≈ {}
+      options.marshal_dump[:q]= query
+      result = make_call(options)
+      result
+    end
+
     def get_synchronizations
       options.endpoint = "import"
       options.query_string = false
