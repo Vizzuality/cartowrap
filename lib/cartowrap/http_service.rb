@@ -7,9 +7,10 @@ module Cartowrap
     end
     def self.make_request(options, credentials={})
       http_method = options.http_method&.to_sym || :get
-      account = credentials["account"]
+      account = credentials["account"] if credentials["account"]
+      carto_url = credentials["carto_url"] || "https://#{account}.carto.com"
       endpoint = Endpoint.new(options, credentials).get
-      con = Faraday.new(:url => "https://#{account}.carto.com") do |faraday|
+      con = Faraday.new(:url => carto_url) do |faraday|
         faraday.request  :multipart
         faraday.response :logger
         faraday.adapter  Faraday.default_adapter
