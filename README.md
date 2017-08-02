@@ -43,6 +43,7 @@ require 'cartowrap'
 Cartowrap.configure do |config|
   config.account = your_cartodb_account
   config.api_key = your_api_key
+  config.carto_url = your_carto_url # only if you have a custom Carto installation in your own server
 end
 
 # Any other place in your code 
