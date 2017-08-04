@@ -1,16 +1,18 @@
 module Cartowrap
   class API
-    def initialize(api_key = nil, account = nil)
+    def initialize(api_key = nil, account = nil, carto_url = nil)
       @api_key = api_key || Cartowrap.config.api_key
       @account = account || Cartowrap.config.account
+      @carto_url = carto_url || Cartowrap.config.carto_url
       @dry_run = Cartowrap.config.dry_run || false
       @credentials = {}
       @credentials['api_key'] = @api_key
       @credentials['account'] = @account
+      @credentials['carto_url'] = @carto_url
       @options = OpenStruct.new
     end
 
-    attr_reader :api_key, :account, :credentials, :options, :response
+    attr_reader :api_key, :account, :credentials, :options, :response, :carto_url
 
     def send_query(query)
       options.endpoint = "sql"
