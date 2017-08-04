@@ -23,11 +23,11 @@ module Cartowrap
         api = options.endpoint
         case api
         when "sql"
-          string += "/api/v2/sql/?q=#{query}"
+          string += "api/v2/sql/?q=#{query}"
         when "sql_post"
-          string += "/api/v2/sql/"
+          string += "api/v2/sql/"
         when "import"
-          string += "/api/v1/synchronizations/"
+          string += "api/v1/synchronizations/"
           string += "?#{options.query}" if options.query_string && options.query
         else
         end
