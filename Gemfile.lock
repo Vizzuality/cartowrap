@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cartowrap (0.1.1)
+    cartowrap (0.1.2)
       faraday
       multi_json
 
